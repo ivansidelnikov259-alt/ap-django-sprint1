@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Блогикум — главная{% endblock %}
+
+{% block content %}
+<h1>Лента записей</h1>
+{% for post in posts %}
+  <article>
+    <h2>{{ post.location }}</h2>
+    <p>{{ post.date }}</p>
+    <p>{{ post.text }}</p>
+    <a href="{% url 'blog:post_detail' post.id %}">Читать далее</a>
+  </article>
+{% endfor %}
+{% endblock %}
